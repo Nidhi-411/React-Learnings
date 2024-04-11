@@ -1,0 +1,21 @@
+{
+  "name": "namaste-react",
+  "version": "1.0.0",
+  "description": "\"Namste react by Akshay saini\"",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "(https://github.com/Nidhi-411/Namaste-React/tree/main)"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Nidhi",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
+}
