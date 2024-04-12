@@ -1,3 +1,7 @@
+
+ import React from "react"; 
+ import ReactDOM from "react-dom/client";
+
 // const heading = React.createElement("h1" , { id :"heading" , xyz :"abc"} , " Hello world from React ")
       
 // const root = ReactDOM.createRoot(document.getElementById("root"))
@@ -21,7 +25,7 @@ const parent = React.createElement("div" , {id : "parent"} ,
    React.createElement('h2' , {} , "second heading h mtlb sibling"),]),
    
    React.createElement("div" , {id:"cilde2"} , 
-   [ React.createElement("h1" , {} , "first heading h ") , 
+   [ React.createElement("h1" , {} , "first  heading h ") , 
    React.createElement('h2' , {} , "second heading h mtlb sibling"),]),
    
 ]);
