@@ -90,3 +90,38 @@ _________ Episode 2 starts here __________
  const root = ReactDOM.createRoot(document.getElementById("root"));
  root.render(<HeadingComponent/>)
  ```
+
+
+ ``` html 
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nidhu React</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="root"> "Not rendered" </div>
+  <!-- <script
+     crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script 
+    crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> 
+   // we no loger need this episode 2 part 2
+  -->
+
+    <script type="module" src="./src/app.js">
+    </script>
+
+</body>
+<!-- <script>
+   const heading = document.createElement('h1')
+    heading.innerHTML = "hello world from js"
+     
+     const root = document.getElementById('root')
+     root.appendChild(heading)
+  
+</script> -->
+</html>
+
+ ```
