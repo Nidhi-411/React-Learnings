@@ -1,4 +1,23 @@
+# Food website 
 
+- in episoode 4 fistly we used hard-coded data for making restro cards , 
+- leaned about props and make thigs dynamic 
+- then we copied the data from the swigy's api 
+  ( inspect - netword - fetch/XHR - search for the api for cards - searched the restaurant array of cards [] inside that api )
+    used json viewer chrome extention for understanding the api
+
+ ## some main points 
+   - config driven ui 
+   - cloudinary img id 
+   - arr.join(", ") property 
+   - destructuring the data 
+   - optional chaining
+   - map mthod
+   - unique key 
+
+ ### rest you can see in handwritten notes of this episode  and in code 
+
+ ``` javascript 
  import React from "react";
  import ReactDOM from "react-dom/client" 
   
@@ -1630,3 +1649,5 @@
 
     const root = ReactDOM.createRoot(document.getElementById("root"));
     root.render(<AppLayOut/>);
+ 
+ ```
