@@ -59,5 +59,16 @@
    ## episode 6
     - using usEffect - made Symmer ui effect in body
     - made a small feature(login - logout) in header
-    -  added a search feature in header 
+    -  added a search feature in header (very intrusting and cunceptual)
+    -  extra things you may try - lazy loading (fetch post call) , 
+                               - corseproxy.io ( for solving cors plugin issue)
+
+   ## episode 7 
+
+    - React routers for smooth navigation and routing  , react router , dynamic router , outlet component
+
+    - routing of react application - creating routing congiguration ( createBrowserRouter())
+                                   - providing this configuration  ( using RouterProvider)
+                                   - useRouterError hook 
+
 
