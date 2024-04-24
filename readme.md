@@ -56,3 +56,8 @@
 
        import {Component} from "path"
 
+   ## episode 6
+    - using usEffect - made Symmer ui effect in body
+    - made a small feature(login - logout) in header
+    -  added a search feature in header 
+

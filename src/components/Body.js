@@ -1,17 +1,52 @@
 
  import RestaurantCard from "./RestaurantCard"
-
- import resList from "../utils/mockData";
- import { useState } from "react";
+ import Shimmer from "./Shimmer";
+ import { useState, useEffect } from "react";
 
  
 const Body = () =>
 { // local state variable
-  const [listOfRestaurant , setlistOfRestaurant] = useState(resList );
+  const [listOfRestaurant , setlistOfRestaurant] = useState([]);
+  const[listOfRestaurantForSearch , setListOfRestaurantForSearch]= useState([]); 
+  const [searchText , setSearchText] =  useState("");
 
+  console.log("Body Render");
+
+   useEffect(()=>{
+      fetchData();
+   } , []);
+
+   const fetchData = async()=>{
+
+     const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.25470&lng=77.39370&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+
+    const json = await data.json();
+    console.log(json);
+   
+    setlistOfRestaurant(json?.data?.cards[1]?.card.card?.gridElements?.infoWithStyle?.restaurants);
+    setListOfRestaurantForSearch(json?.data?.cards[1]?.card.card?.gridElements?.infoWithStyle?.restaurants) 
+    }
   
-  return ( <div className="body">
-    <div>
+    return listOfRestaurant.length === 0 ?  <Shimmer/> :
+    ( <div className="body">
+    <div className="filter">
+        <div className="search">
+          <input type="text" className="search-box" 
+          value={searchText} 
+          onChange = {(e)=> {
+            setSearchText(e.target.value);
+          }}/>  
+         <button onClick={()=>{
+            // filter the restro-cards and update the ui
+            // searchtext
+           const filteredRestaurant = listOfRestaurantForSearch.filter(
+            (res)=> res.info.name.toLowerCase().includes(searchText.toLowerCase())
+           );
+           setlistOfRestaurant(filteredRestaurant);
+         }}>search</button>
+        </div>
+
       <button className="filter-btn" 
        onClick={()=>{
         const filteredList = listOfRestaurant.filter(
