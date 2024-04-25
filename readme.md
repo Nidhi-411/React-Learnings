@@ -71,4 +71,9 @@
                                    - providing this configuration  ( using RouterProvider)
                                    - useRouterError hook 
 
+      - routing - two types of routing in web apps 
+        - cliend side routing 
+         - server side routing 
 
+       part 4 - children routes , <Outlet/> component , <Link><Link/> compnent  
+          
