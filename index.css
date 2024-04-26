@@ -68,3 +68,8 @@
 .search{
     padding: 10px;
 }
+
+.style-none{
+    text-decoration: none;
+    color: inherit;
+}
