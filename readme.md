@@ -75,5 +75,9 @@
         - cliend side routing 
          - server side routing 
 
-       part 4 - children routes , <Outlet/> component , <Link><Link/> compnent  
-          
+       part 4 - children routes , <Outlet/> component , <Link><Link/> compnent 
+
+  ## episode 9 
+
+  - custom hooks
+  -lazy loading / chunking / code splitting / dynamic building / on demand loading / dynamic import         
