@@ -8,21 +8,20 @@ class About extends React.Component{
     constructor(props){
 
         super(props);
-       console.log("Parent Constructor"); 
+      // console.log("Parent Constructor"); 
     }
    
     componentDidMount(){
-        console.log("parent did mount")
+       // console.log("parent did mount")
     }
    render(){
-    console.log("parent render");
+    //console.log("parent render");
     return(
        
         <div>
           <h1>About</h1>
-         <UserClass name={"Tonu Titu"} location={"Pta-nhi-pta"} /> 
-         <UserClass name={"Child2"} location={"us"} /> 
-           
+         <UserClass name={"Tonu Titu "} location={"Pta-nhi-pta"} /> 
+        
         </div> 
     );
    }
