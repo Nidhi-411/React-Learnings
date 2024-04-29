@@ -1,18 +1,20 @@
 
- import RestaurantCard from "./RestaurantCard"
+ import RestaurantCard ,{withOpenLable} from "./RestaurantCard"
  import Shimmer from "./Shimmer";
  import { useState, useEffect } from "react";
  import { Link } from "react-router-dom";
  import useOnlineStatus from "../utils/useOnlineStatus";
 
  
+const RestaurantWithLable = withOpenLable(RestaurantCard);
+
 const Body = () =>
 { // local state variable
   const [listOfRestaurant , setlistOfRestaurant] = useState([]);
   const[listOfRestaurantForSearch , setListOfRestaurantForSearch]= useState([]); 
   const [searchText , setSearchText] =  useState("");
 
-  console.log("Body Render");
+  console.log("Body Render " , listOfRestaurant);
 
    useEffect(()=>{
       fetchData();
@@ -77,7 +79,14 @@ const Body = () =>
         {
            listOfRestaurant.map( (restaurant) => 
          (
-            <Link to={"/restaurants/"+restaurant.info.id} className="style-none"><RestaurantCard key={restaurant.info.id} resData={restaurant}/></Link>
+            <Link key={restaurant.info.id} to={"/restaurants/"+restaurant.info.id} className="style-none">
+            {/**if the restraurant is opend then add a opened lable to it */
+               restaurant.info.isOpen ? <RestaurantWithLable resData={restaurant} /> :
+          
+             <RestaurantCard  resData={restaurant}/>
+         }
+
+            </Link>
          ))
         }
     </div>

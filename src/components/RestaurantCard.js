@@ -16,4 +16,19 @@ const RestaurantCard = (props)=>
    )
 }
 
+// heigher order component
+// input - RestaurantCard  , output RestaurantCardPromoted
+
+ export const withOpenLable = ( RestaurantCard)=>
+{
+   return (props)=>{
+       return(
+        <div>
+        <label className="absolute m-1 p-1 bg-green-600 text-black">Open</label>
+        <RestaurantCard {...props}/>
+        </div>
+       )
+   }
+}
+
 export default RestaurantCard;
