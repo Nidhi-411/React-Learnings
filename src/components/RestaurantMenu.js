@@ -8,6 +8,8 @@ import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 
 const RestaurantMenu = ()=> { 
+  
+   const [showIndex , setShowIndex] = new useState(0);
 
    const {resId} = useParams(); 
     
@@ -31,8 +33,13 @@ const RestaurantMenu = ()=> {
          <p className="font-bold text-lg">{cuisines.join(", ")}
            {costForTwoMessage}</p> 
 
-           {categories.map( (category) =>
-            <RestaurantCategory key={category.card.card.title} data= {category.card.card}/>) }
+           {categories.map( (category , index ) =>
+            <RestaurantCategory key={category.card.card.title}
+             data= {category.card.card} 
+             showItems={ index == showIndex && true}
+             setShowIndex={()=>setShowIndex(index)}
+            
+             />) }
      </div>
    
       
