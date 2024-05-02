@@ -1,5 +1,5 @@
 
- import React, { lazy , Suspense } from "react";
+ import React, { lazy , Suspense, useEffect } from "react";
  import ReactDOM from "react-dom/client" 
  import Header from "./components/Header";
  import Body from "./components/Body";
@@ -8,19 +8,37 @@
  import Error from "./components/Error" 
  import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import RestaurantMenu from "./components/RestaurantMenu";
+import UserContext from "./utils/UserContext";
+import { useState , useEffect } from "react";
 //import Grocery from "./components/Grocery";
      
    
 
 const Grocery = lazy(() => import("./components/Grocery"));
+ 
 
     const AppLayOut = ()=>{
+
+        const [userName , setUserName] = useState("");
+
+        // authentication
+        useEffect(()=>{
+         // make an Api call and snd username and password
+         const data = {
+             name : "Nidhi Yadav"
+         }
+         setUserName(data.name); 
+        }, []);
+        
         return (
+            <UserContext.Provider value={{loggedInUser:userName , setUserName}}>
             <div className="app">
               <Header/>
                <Outlet/>
-            </div>
+            </div> 
+            </UserContext.Provider> 
         )
+        
     }
 
     const appRouter = createBrowserRouter([

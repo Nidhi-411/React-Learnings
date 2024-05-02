@@ -14,7 +14,7 @@ class UserClass extends React.Component{
       async componentDidMount(){
 
          console.log("child did mount");
-        const data = await fetch("https://api.github.com/users/akshaymarch7");
+        const data = await fetch("https://api.github.com/users/Nidhi-411");
         const json = await data.json();
         console.log(json);
         this.setState({
@@ -34,12 +34,11 @@ class UserClass extends React.Component{
       render(){
            console.log("child render");
          
-        const {name , location, avatar_url} = this.state.userData
+        const {name , avatar_url} = this.state.userData
         return(
             <div className="user-card">
-           <img src={avatar_url}/>  
+           <img src={avatar_url} className="w-96"/>  
            <h2> Name : {name}</h2> 
-           <h3> Location : {location}</h3>
            <h4>contact : addb@gmail.com</h4>
         </div> 
         );
