@@ -80,4 +80,24 @@
   ## episode 9 
 
   - custom hooks
-  -lazy loading / chunking / code splitting / dynamic building / on demand loading / dynamic import         
+  -lazy loading / chunking / code splitting / dynamic building / on demand loading / dynamic import  
+
+  ## episode 10 
+  - all about tailwind css
+
+  ## episode 11
+
+  - higher order component 
+  - Controled and uncontroled components
+  --
+  - Created a accordian functionality for RestaurantMenu
+
+  - Lifting state up 
+
+  - props drilling 
+
+  -  context 
+
+  ## episode 12 
+
+  -  ____________Redux___________        
