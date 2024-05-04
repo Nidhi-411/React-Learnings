@@ -1,6 +1,18 @@
+import { addItem } from "../utils/cartSlice";
 import { CDN_Menu } from "../utils/constants";
+import { useDispatch } from "react-redux";
+
+
 
 const ItemList = ({ items }) => {
+
+  const dispatch = useDispatch();
+const handleAddItem = (item)=>{
+  // dispatch 
+   dispatch(addItem(item))
+}
+
+
   if (!items || !Array.isArray(items)) {
     return <div>No items available</div>; // Provide a fallback if items is not an array or is undefined
   }
@@ -14,6 +26,7 @@ const ItemList = ({ items }) => {
           return null; // If no card info, skip rendering
         }
 
+        
         return (
           <div
             key={cardInfo.id}
@@ -31,7 +44,7 @@ const ItemList = ({ items }) => {
             <div >
                 
             {
-                 cardInfo.imageId?(<button className="p-2 bg-black text-green-200 absolute rounded-lg  ">Add+</button>
+                 cardInfo.imageId?(<button className="p-2 bg-black text-green-200 absolute rounded-lg  " onClick={()=>handleAddItem(item)}>Add+</button>
                 ):<button className="p-0 bg-green-300 m-auto flex bg-center rounded-lg">Add+</button>
               
                }

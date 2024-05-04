@@ -5,9 +5,11 @@ import userContext from "../utils/UserContext";
 import { useContext } from "react";
 
 import {useState } from "react";
+import { useSelector } from "react-redux";
 
 const Header = ()=>{ 
    
+   const cartItems = useSelector((store)=>store.cart.items); // subscribing to store using selector
    const {loggedInUser}= useContext(userContext);
 
     const [btnName , setbtnName] = new useState("Login");
@@ -25,7 +27,7 @@ const Header = ()=>{
                 <li className="px-4"> <Link to="/about">About us</Link> </li>
                 <li className="px-4"> <Link to="/contact">Contact us</Link> </li>
                 <li className="px-4"> <Link to = "/grocery">Grocery</Link></li>
-                <li className="px-4"> cart </li>
+                <li className="px-4" > <Link to = "/cart"> cart-({cartItems.length})</Link> </li>
                 <li className="px-4"> <button className="login-btn" onClick={()=>{
                   btnName ==="Login"?setbtnName("Log-out"):setbtnName("Login");
                 }}>{btnName}</button></li>
