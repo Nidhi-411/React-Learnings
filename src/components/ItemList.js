@@ -45,7 +45,7 @@ const handleAddItem = (item)=>{
                 
             {
                  cardInfo.imageId?(<button className="p-2 bg-black text-green-200 absolute rounded-lg  " onClick={()=>handleAddItem(item)}>Add+</button>
-                ):<button className="p-0 bg-green-300 m-auto flex bg-center rounded-lg">Add+</button>
+                ):<button className="p-0 bg-black text-green-200 m-auto flex bg-center rounded-lg"  onClick={()=>handleAddItem(item)}  >Add+</button>
               
                }
               
