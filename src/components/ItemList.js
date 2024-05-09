@@ -1,10 +1,10 @@
-import { addItem } from "../utils/cartSlice";
+import { addItem , removeItem } from "../utils/cartSlice";
 import { CDN_Menu } from "../utils/constants";
 import { useDispatch } from "react-redux";
 
 
 
-const ItemList = ({ items }) => {
+const ItemList = ({ items, showAddButton = true, onRemoveItem = null  }) => {
 
   const dispatch = useDispatch();
 const handleAddItem = (item)=>{
@@ -16,6 +16,12 @@ const handleAddItem = (item)=>{
   if (!items || !Array.isArray(items)) {
     return <div>No items available</div>; // Provide a fallback if items is not an array or is undefined
   }
+
+  const handleRemoveItem = (item) => {
+    if (onRemoveItem) {
+      onRemoveItem(item);
+    }
+  };
 
   return (
     <div>
@@ -43,11 +49,20 @@ const handleAddItem = (item)=>{
             </div>
             <div >
                 
-            {
-                 cardInfo.imageId?(<button className="p-2 bg-black text-green-200 absolute rounded-lg  " onClick={()=>handleAddItem(item)}>Add+</button>
+            {   showAddButton &&
+                ( cardInfo.imageId?(<button className="p-2 bg-black text-green-200 absolute rounded-lg  " onClick={()=>handleAddItem(item)}>Add+</button>
                 ):<button className="p-0 bg-black text-green-200 m-auto flex bg-center rounded-lg"  onClick={()=>handleAddItem(item)}  >Add+</button>
-              
+              )
                }
+
+               {onRemoveItem && (
+                <button
+                  className="p-2 bg-red-500 text-white rounded-lg ml-2"
+                  onClick={() => handleRemoveItem(item)}
+                >
+                  Remove
+                </button>
+              )} 
               
                
                <div>
