@@ -14,6 +14,9 @@ import { useState , useEffect } from "react";
   import { Provider } from "react-redux";   
   import appStore from "./utils/appStore"; 
   import Cart from "./components/Cart";
+  import Login from "./components/Login";
+  import Signup from "./components/Signup"; 
+import { auth } from "./firebase";
 
 const Grocery = lazy(() => import("./components/Grocery"));
  
@@ -23,13 +26,26 @@ const Grocery = lazy(() => import("./components/Grocery"));
         const [userName , setUserName] = useState("");
 
         // authentication
+
+        // useEffect(()=>{
+        //  // make an Api call and snd username and password
+        //  const data = {
+        //      name : "Nidhi Yadav"
+        //  }
+        //  setUserName(data.name); 
+        // }, []);
+
         useEffect(()=>{
-         // make an Api call and snd username and password
-         const data = {
-             name : "Nidhi Yadav"
-         }
-         setUserName(data.name); 
-        }, []);
+          auth.onAuthStateChanged((user)=>{
+            console.log(user);
+            if(user){
+                setUserName(user.displayName)
+            }
+            else{
+                setUserName("")
+            }
+          })
+        }, [])
         
         return (
             <Provider store={appStore}>
@@ -75,6 +91,16 @@ const Grocery = lazy(() => import("./components/Grocery"));
                     path: "/cart",
                     element:<Cart/>
                 },
+                {
+                    path:"/login",
+                    element:<Login/>
+                },
+                
+                    {
+                        path: "/signup", // New signup route
+                        element: <Signup />, // The component to render for /signup
+                      },
+               
 
                 
             ]

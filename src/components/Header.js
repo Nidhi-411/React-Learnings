@@ -3,6 +3,8 @@ import { LOGO_URL } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import userContext from "../utils/UserContext";
 import { useContext } from "react";
+import { useNavigate } from 'react-router-dom';
+
 
 import {useState } from "react";
 import { useSelector } from "react-redux";
@@ -11,9 +13,22 @@ const Header = ()=>{
    
    const cartItems = useSelector((store)=>store.cart.items); // subscribing to store using selector
    const {loggedInUser}= useContext(userContext);
+   const navigate = useNavigate();
 
     const [btnName , setbtnName] = new useState("Login");
     const onlineStatus = useOnlineStatus();
+
+   //  const handleBtnClick= ()=>{
+
+   //    if( btnName === "Login")
+   //    {
+
+   //    // navigate("/login");
+   //    setbtnName("Log-out")
+   // }
+   //    else
+   //    setbtnName("Login");
+   //  }
     return (
         <div className ="flex justify-between bg-pink-100 shadow-lg py-2" >
            <div className="w-32">
@@ -25,12 +40,13 @@ const Header = ()=>{
                  <li className="px-4">online Status : {onlineStatus  ? "\u2705" : "\u2B55"}</li>
                 <li className="px-4"><Link to="/"> Home</Link></li>
                 <li className="px-4"> <Link to="/about">About us</Link> </li>
-                <li className="px-4"> <Link to="/contact">Contact us</Link> </li>
+                <li className="px-4"> <Link to="/contact">Contact us</Link>  </li>
                 <li className="px-4"> <Link to = "/grocery">Grocery</Link></li>
                 <li className="px-4" > <Link to = "/cart"> cart-({cartItems.length})</Link> </li>
-                <li className="px-4"> <button className="login-btn" onClick={()=>{
-                  btnName ==="Login"?setbtnName("Log-out"):setbtnName("Login");
-                }}>{btnName}</button></li>
+                <li className="px-4"> <Link to="/login">Login</Link></li>
+                <li className="px-4"> <Link to="/signup">Signup</Link></li>
+
+                {/* <li className="px-4"> <button className="login-btn" onClick={ handleBtnClick }>{btnName}</button></li> */}
                 <li className="px-4 font-bold">{loggedInUser}</li>
               </ul>
            </div>
