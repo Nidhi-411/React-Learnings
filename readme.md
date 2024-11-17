@@ -1,4 +1,9 @@
 # Namste React 
+## handwritten notes of React js 
+#### React js - part 1 
+https://drive.google.com/file/d/14dCi_rosNO1x0VdqsGKFtdZmTORkjl0m/view?usp=sharing
+#### React js - part 2
+https://drive.google.com/file/d/1U_ed94EQzaTYfzVo7GwTZ8ivA3zP_Weg/view?usp=sharing
 
 ## parcel 
 - Dev Build
